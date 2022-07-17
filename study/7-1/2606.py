@@ -25,4 +25,4 @@ def bfs(v):
                 visit_list[i] = 1
     print(visit_list.count(1)-1)
 
-dfs(1)
+bfs(1)

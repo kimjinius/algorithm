@@ -1,25 +1,27 @@
-# 백준 1987 문제
-import sys 
-from collections import deque
+import sys
+input = lambda: sys.stdin.readline().strip()
 
-input=sys.stdin.readline
-R,C = map(int, input().split())
-arr=[list(input()) for _ in range(R)]
-dx=[1,-1,0,0]
-dy=[0,0,1,-1]
-answer=1
-def bfs(x,y):
+r, c = map(int,input().split())
+a = [list(map(lambda x : ord(x)-65, input()))for i in range(r)]
+ch = [0] * 26
+
+dx = [-1,0,1,0]
+dy = [0,1,0,-1]
+
+def dfs(x, y, z):
     global answer
-    queue=deque()
-    queue.append([x,y,arr[x][y]])
-    while queue:
-        x,y,ans=queue.popleft()
-        for i in range(4):
-            nx=x+dx[i]
-            ny=y+dy[i]
-            if nx>=0 and ny>=0 and nx<R and ny<C and arr[nx][ny] not in ans:
-                queue.append([nx,ny,ans+arr[nx][ny]])
-                answer=max(answer,len(ans)+1)
-                
-bfs(0,0)
+    answer = max(answer, z)
+
+    for i in range(4):
+        nx = x + dx[i]
+        ny = y + dy[i]
+
+        if 0 <= nx < r and 0 <= ny <c and ch[a[nx][ny]]==0:
+            ch[a[nx][ny]] = 1
+            dfs(nx, ny, z+1)
+            ch[a[nx][ny]] = 0
+answer = 1
+ch[a[0][0]] = 1
+dfs(0,0,answer)
+
 print(answer)
