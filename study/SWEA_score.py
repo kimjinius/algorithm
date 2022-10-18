@@ -9,33 +9,33 @@ for test in range(t) :
 
     for i in range(n):
         if score_list[i][0] == k :
-            if i == 0 :
+            if i < n/10 :
                 print(f'#{test+1} A+')
                 break
-            elif i == 1 :
+            elif i < n/10*2 :
                 print(f'#{test+1} A0')
                 break
-            elif i == 2 :
+            elif i < n/10*3 :
                 print(f'#{test+1} A-')
                 break
-            elif i == 3 :
+            elif i < n/10*4 :
                 print(f'#{test+1} B+')
                 break
-            elif i == 4 :
+            elif i < n/10*5 :
                 print(f'#{test+1} B0')
                 break
-            elif i == 5 :
+            elif i < n/10*6 :
                 print(f'#{test+1} B-')
                 break
-            elif i == 6 :
+            elif i < n/10*7 :
                 print(f'#{test+1} C+')
                 break
-            elif i == 7 :
+            elif i < n/10*8 :
                 print(f'#{test+1} C0')
                 break
-            elif i == 8 :
+            elif i < n/10*9 :
                 print(f'#{test+1} C-')
                 break
-            elif i == 9 :
+            elif i < n/10*10 :
                 print(f'#{test+1} D0')
                 break
